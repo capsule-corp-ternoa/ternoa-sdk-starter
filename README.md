@@ -2,7 +2,7 @@
 
 ***Welcome 👋,*** 
 
-This tutorial is an interactive way to quickstart jumping into Ternoa SDK and start building on the chain. After going throw the three basic exercices, you will know **how to mint, retreive and sell an NFT**, by using our tools:
+This tutorial is an interactive way to quickstart jumping into Ternoa SDK and start building on the chain. After going throw the three basic exercices, you will know **how to mint, retrieve and sell an NFT**, by using our tools:
 
 - **Ternoa-js API**: _A Javascript tool_ it self based on the Polkadot.js API. This [npm package](https://www.npmjs.com/package/ternoa-js) offers developers a seamless experience to execute transactions (called extrinsics in Polkadot/Substrate ecosystem) on the Ternoa chain, and handles all the hard work for you. Get more information [here](https://github.com/capsule-corp-ternoa/ternoa-js). 
 
@@ -14,9 +14,9 @@ This tutorial assumes basic knowledge of JavaScript and Node js to understand th
 
 - Just download the repository and run `npm install` in the terminal.
 *We already installed the ternoa-js : find it in the package.json.*
-- 1st step: open `mintNFT.ts`. Once you read carrefuly the comments. Run `npm run start src/basics/mintNFT.ts`
-- 2nd step: open `getNFT.ts`. Once you read carrefuly the comments and instructions. Run `npm run start src/basics/getNFT.ts`
-- 3rd step: open `sellNFT.ts`. Once you read carrefuly the comments and instructions. Run `npm run start src/basics/sellNFT.ts`
+- 1st step: open `mintNFT.ts`. Once you read carefuly the comments. Run `npm run start src/basics/mintNFT.ts`
+- 2nd step: open `getNFT.ts`. Once you read carefuly the comments and instructions. Run `npm run start src/basics/getNFT.ts`
+- 3rd step: open `sellNFT.ts`. Once you read carefuly the comments and instructions. Run `npm run start src/basics/sellNFT.ts`
 
 
 ## About Ternoa
