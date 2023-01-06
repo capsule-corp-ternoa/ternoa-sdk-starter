@@ -21,4 +21,4 @@ This tutorial assumes basic knowledge of JavaScript and Node js to understand th
 
 ## About Ternoa
 
-[Ternoa](https://ternoa.network) is a Decentralised, Open source, NFT-centric Layer 1 blockchain that is multi-chain by design and aims to provide a technical stack to build scalable and secure NFTs with native support for advanced features.
+[Ternoa](https://ternoa.network) is a Decentralized, Open source, NFT-centric Layer 1 blockchain that is multi-chain by design and aims to provide a technical stack to build scalable and secure NFTs with native support for advanced features.
