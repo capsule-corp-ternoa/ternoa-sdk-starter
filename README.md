@@ -14,9 +14,20 @@ This tutorial assumes basic knowledge of JavaScript and Node js to understand th
 
 - Just download the repository and run `npm install` in the terminal.
 *We already installed the ternoa-js : find it in the package.json.*
-- 1st step: open `mintNFT.ts`. Once you read carefuly the comments. Run `npm run start src/basics/mintNFT.ts`
-- 2nd step: open `getNFT.ts`. Once you read carefuly the comments and instructions. Run `npm run start src/basics/getNFT.ts`
-- 3rd step: open `sellNFT.ts`. Once you read carefuly the comments and instructions. Run `npm run start src/basics/sellNFT.ts`
+
+- Mint NFT: open `mintNFT.ts`. Once you read carefully the comments. Run `npm run start src/basics/mintNFT.ts`
+In this 1st step, you will understand how to initialize the API and run your first on-chain transaction to create an NFT. Keep the NFT id from the log with you as you will need it later. 
+
+- View NFT step: open `getNFT.ts`. Once you read carefully the comments and instructions. Run `npm run start src/basics/getNFT.ts`
+In the 2nd step, you will see how to use our Indexer to retrieve your NFT data. 
+
+- List NFT: open `sellNFT.ts`. Once you read carefully the comments and instructions. Run `npm run start src/basics/sellNFT.ts`
+In the 3rd and last step, you will learn how to list your NFT for sale on a marketplace. 
+
+
+Wow ! One single line of code to create an NFT ? One single line of code to list an NFT on a Marketplace ? Amazing right ? 
+Let's go ! You are now ready to start building your own dApp using our Tools. 
+
 
 
 ## About Ternoa
