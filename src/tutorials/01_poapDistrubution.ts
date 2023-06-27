@@ -20,11 +20,12 @@ import { createNftTx, createCollection, transferNftTx } from "ternoa-js/nft";
 const SEED = process.env.MNEMONIC_SEED ?? "//TernoaTestAccount";
 
 // IPFS
-const IPFS_NODE_URL = process.env.IPFS_NODE_URL ?? "https://ipfs.ternoa.dev";
+const IPFS_NODE_URL = process.env.IPFS_NODE_URL ?? "https://ipfs-dev.trnnfr.com";
 const IPFS_API_KEY = process.env.IPFS_API_KEY;
 
 // Attendees addresses
-const ADDRESSES = ["5Cf8PBw7QiRFNPBTnUoks9Hvkzn8av1qfcgMtSppJvjYcxp6"];
+// Add at least one address here
+const ADDRESSES = [""];
 
 const prepareCollectionAssets = async (ipfsClient: TernoaIPFS, metadata: any) => {
   const profilePicture = new File([await fs.promises.readFile("pfp.jpeg")], "pfp.jpeg", {
@@ -85,8 +86,8 @@ const main = async () => {
 
     // STEP 1: Collection assets preparation - IPFS upload
     const collectionMetadata = {
-      name: "TernoaIRL - Bangkok",
-      description: "This collection was minted during the #1 Ternoa meetup in Bangkok!",
+      name: "Ternoa - SDK Starter Collection",
+      description: "Describe this collection here",
     };
     const collectionOffchainData = await prepareCollectionAssets(ipfsClient, collectionMetadata);
 
@@ -100,8 +101,8 @@ const main = async () => {
       description: "This badge is the gateway to the Ternoa Builders Experience.",
       properties: {
         categories: ["Collectible"],
-        Type: "Meetup Badge",
-        City: "Bangkok",
+        Type: "Ternoa - SDK Starter Badge",
+        City: "Ternoa - SDK Starter remote",
         Year: "2023",
         Quantity: quantity,
       },
