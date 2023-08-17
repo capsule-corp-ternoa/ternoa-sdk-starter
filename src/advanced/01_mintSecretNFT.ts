@@ -15,6 +15,7 @@ import {
   prepareAndStoreKeyShares,
   SecretNftData,
   TeeSharesStoreType,
+  encryptFile,
 } from "ternoa-js";
 
 // We asume the you already know the basic features of the Ternoa SDK as we are going to dive into some more advanced concepts.
@@ -96,14 +97,17 @@ const mintSecretNFT = async (): Promise<{
     );
 
     // Because we want the secret content to be "secret", we want first to encrypt it before storing it on IPFS.
-    // We cover you with this usefull helper.
-    const { Hash: secretOffchainDataHash } =
-      await secretNftEncryptAndUploadFile(
-        secretNftFile,
-        publicKey,
-        ipfsClient,
-        secretNftMetadata
-      );
+    const encryptedFile = await encryptFile(secretNftFile, publicKey);
+
+    const { Hash: secretOffchainDataHash } = await ipfsClient.storeSecretNFT(
+      encryptedFile,
+      secretNftFile.type,
+      publicKey,
+      secretNftMetadata
+    );
+
+    // Note: to avoid to manually do those steps, we cover you with this usefull helper : secretNftEncryptAndUploadFile()
+
     console.log(
       "Find your Secret NFT IPFS hash with encrypted content:",
       `${IPFS_NODE_URL}/ipfs/${secretOffchainDataHash}`
