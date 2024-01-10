@@ -15,10 +15,9 @@
   },
   "dependencies": {
     "@polkadot/types": "^10.7.1",
-    "@types/dotenv": "^8.2.0",
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
-    "graphql-request": "5.1.0",
-    "ternoa-js": "^1.5.3"
+    "graphql-request": "^6.1.0",
+    "ternoa-js": "^1.6.1-rc1"
   }
 }
