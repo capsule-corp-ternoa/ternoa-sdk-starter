@@ -19,9 +19,7 @@ Before getting started, please ensure that you have the following prerequisites 
 3. Install [NodeJS v.14+](https://nodejs.org/en/download/), along with NPM.
 4. Generate an IPFS Key from the [Ternoa IPFS Key manager](https://ipfs-key-manager-git-dev-ternoa.vercel.app/)
 
-:::info
-We assume you have already created a new wallet for development purposes with no CAPS on Ternoa Mainnet. It is essential you use a development wallet with NO REAL MONEY in it when learning, practicing, and testing.
-:::
+**Warning:** We assume you have already created a new wallet for development purposes with no CAPS on Ternoa Mainnet. It is essential you use a development wallet with NO REAL MONEY in it when learning, practicing, and testing.
 
 ## Getting Started
 
