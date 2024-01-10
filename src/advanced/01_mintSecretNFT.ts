@@ -1,6 +1,7 @@
 import fs from "fs";
 import dotenv from "dotenv";
 dotenv.config();
+
 import {
   initializeApi,
   getKeyringFromSeed,
@@ -9,7 +10,6 @@ import {
   safeDisconnect,
   generatePGPKeys,
   TernoaIPFS,
-  secretNftEncryptAndUploadFile,
   getEnclaveHealthStatus,
   createSecretNft,
   prepareAndStoreKeyShares,
@@ -50,9 +50,9 @@ const mintSecretNFT = async (): Promise<{
     // As explained in the documentation, you can generate your own IPFS key using our key manager : https://ipfs-key-manager-git-dev-ternoa.vercel.app/
 
     // IPFS CLUSTER ADDRESS AND KEY
-    const IPFS_NODE_URL =
-      process.env.IPFS_NODE_URL ?? "https://ipfs-dev.trnnfr.com";
+    const IPFS_NODE_URL = "https://ipfs-dev.trnnfr.com";
     const IPFS_API_KEY = process.env.IPFS_API_KEY;
+    if (!IPFS_API_KEY) throw new Error("IPFS_KEY_UNDEFINED: Verify your .env variables")
 
     // NFT MEDIA WITH NFT METADATA
     const FILE = "pfp.jpeg";
@@ -117,9 +117,12 @@ const mintSecretNFT = async (): Promise<{
 
     // Communication on the blockchain is achieved through executing extrinsics, also called transactions or tx.
     // In order to execute transactions, a keyring (containing your address) needs to sign them and pay the execution fee.
-    // We provide a default account that you can use in this exercise, but we strongly recommend to use your own account by
-    // changing //TernoaTestAccount with your account seed.
-    const keyring = await getKeyringFromSeed("//TernoaTestAccount");
+    // The keyring must be retrieved from the Ternoa Account seed you created before starting this tutorial.
+    // In case you have not yet done this, add your SEED in a .env variable named SEED_TEST_FUNDS.
+    const SEED_TEST_FUNDS = process.env.SEED_TEST_FUNDS;
+    if (!SEED_TEST_FUNDS) throw new Error("SEED_UNDEFINED: Verify your .env variables")
+
+    const keyring = await getKeyringFromSeed(SEED_TEST_FUNDS);
     console.log("Keyring set and ready to use for creating your first NFT");
 
     // This next single line function to create a secret NFT requires a few parameters:

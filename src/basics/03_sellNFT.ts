@@ -5,13 +5,15 @@ import {
 	safeDisconnect,
 	listNft,
 } from "ternoa-js";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Change the nftId provided by default with the one created in step one (01_mintNFT.ts).
 const NFT_ID = undefined;
 
 const sellNFT = async () => {
 	try {
-		if (NFT_ID === undefined) throw new Error('Change the nftId provided by default with the one created in step one (01_mintNFT.ts).')
+		if (NFT_ID === undefined) throw new Error('Change the const NFT_ID with the one created in step one (01_mintNFT.ts).')
 
 		// We first initialize the SDK API to connect to the Ternoa Chain.
 
@@ -28,9 +30,12 @@ const sellNFT = async () => {
 
 		// Communication on the blockchain is achieved through executing extrinsics, also called transactions or tx.
 		// In order to execute transactions, a keyring (containing your address) needs to sign them and pay the execution fee.
-		// We provide a default account that you can use in this exercise, but we strongly recommend to use your own account by
-		// changing //TernoaTestAccount with your account seed.
-		const keyring = await getKeyringFromSeed("//TernoaTestAccount");
+		// The keyring must be retrieved from the Ternoa Account seed you created before starting this tutorial.
+		// In case you have not yet done this, add your SEED in a .env variable named SEED_TEST_FUNDS.
+		const SEED_TEST_FUNDS = process.env.SEED_TEST_FUNDS;
+		if (!SEED_TEST_FUNDS) throw new Error("SEED_UNDEFINED: Verify your .env variables")
+		
+		const keyring = await getKeyringFromSeed(SEED_TEST_FUNDS);
 		console.log("Keyring set and ready to use.");
 
 		// Here list our NFT for sale on a Marketplace we already created (Marketplace Id: 22).

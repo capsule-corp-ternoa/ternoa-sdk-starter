@@ -6,6 +6,8 @@ import {
 	safeDisconnect,
 	NFTCreatedEvent,
 } from "ternoa-js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const mintNFT = async (): Promise<NFTCreatedEvent> => {
 	console.log("Starting to create your NFT");
@@ -25,9 +27,12 @@ const mintNFT = async (): Promise<NFTCreatedEvent> => {
 
 		// Communication on the blockchain is achieved through executing extrinsics, also called transactions or tx.
 		// In order to execute transactions, a keyring (containing your address) needs to sign them and pay the execution fee.
-		// We provide a default account that you can use in this exercise, but we strongly recommend to use your own account by
-		// changing //TernoaTestAccount with your account seed.
-		const keyring = await getKeyringFromSeed("//TernoaTestAccount");
+		// The keyring must be retrieved from the Ternoa Account seed you created before starting this tutorial.
+		// In case you have not yet done this, add your SEED in a .env variable named SEED_TEST_FUNDS.
+		const SEED_TEST_FUNDS = process.env.SEED_TEST_FUNDS;
+		if (!SEED_TEST_FUNDS) throw new Error("SEED_UNDEFINED: Verify your .env variables")
+		
+		const keyring = await getKeyringFromSeed(SEED_TEST_FUNDS);
 		console.log("Keyring set and ready to use for creating your first NFT");
 
 		// Here we create the NFT with the createNft() function.
