@@ -36,11 +36,11 @@ In the `.env.exemple` file, you will find the expected environement variables. C
 
 In the `src/basics/` folder we will find the following files:
 
-- `01-mintNFT.ts`: In this 1st step, you will understand how to initialize the API and run your first on-chain transaction to create an NFT. Keep the NFT id from the log with you as you will need it later.
+- `01_mintNFT.ts`: In this 1st step, you will understand how to initialize the API and run your first on-chain transaction to create an NFT. Keep the NFT id from the log with you as you will need it later.
 
-- `02-getNFT.ts`: In the 2nd step, you will see how to use our Indexer to retrieve your NFT data.
+- `02_getNFT.ts`: In the 2nd step, you will see how to use our Indexer to retrieve your NFT data.
 
-- `03-sellNFT.ts`: In the 3rd and last step, you will learn how to list your NFT for sale on a marketplace.
+- `03_sellNFT.ts`: In the 3rd and last step, you will learn how to list your NFT for sale on a marketplace.
 
 Run the following command to execute each script once you have read carefully the comments (replace FILENAME with the correct file name):
 
