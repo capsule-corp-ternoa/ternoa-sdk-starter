@@ -16,6 +16,7 @@ import {
   SecretNftData,
   TeeSharesStoreType,
   encryptFile,
+  getFirstPublicClusterAvailable,
 } from "ternoa-js";
 
 // We asume the you already know the basic features of the Ternoa SDK as we are going to dive into some more advanced concepts.
@@ -153,8 +154,10 @@ const mintSecretNFT = async (): Promise<{
 
     // The secret NFT is now created, but we have one more step to go through:
     // Sync our secret NFT on the TEE/SGX cluster: store the private key to decrypt the content later.
-    // By default we store our key share on the cluster id 0, but you might have to update it according to your needs.
-    const CLUSTER_ID = 0;
+    // Unless specific use cases require it, data must be sent to one of the PUBLIC clusters registered on the chain.
+    // We uses the following helper from SDK to find our cluster Id. 
+    const CLUSTER_ID = await getFirstPublicClusterAvailable();
+    console.log(`Syncing the NFT on cluster Id: ${CLUSTER_ID}`);
 
     // THE GOOD PRACTICE IS TO CHECK THE CLUSTER AND ENCLAVES AVAILABILITY.
     await getEnclaveHealthStatus(CLUSTER_ID);
